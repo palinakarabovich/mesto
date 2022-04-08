@@ -17,6 +17,12 @@
     cursor: pointer;
 }
 
+@media screen and (max-width: 800px){
+    .profile__add-photo-button{
+        width: 130px;
+    } 
+ }
+
 @media screen and (max-width: 690px){
     .profile__add-photo-button{
         background-size: 16px 16px;
