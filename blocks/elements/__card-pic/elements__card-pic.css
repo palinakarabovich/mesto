@@ -1,0 +1,9 @@
+.elements__card-pic{
+    width: 282px;
+    height: 282px;
+    border-top-left-radius:5%;
+    border-top-right-radius: 5%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}

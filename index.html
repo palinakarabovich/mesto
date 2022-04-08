@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="pages/index.css">
+  <title>Место</title>
+</head>
+<body class="page">
+    <header class="header page__center">
+      <a href="#" class="header__link link-style"><img src="./images/mesto-logo.svg" alt="Логотип" class="logo"></a>
+    </header>
+
+    <main class="content">
+
+      <section class="profile page__center">
+        <div class="profile__content">
+          <img src="./images/profile-pic.jpg" alt="Аватар пользователя" class="profile__avatar">
+            <div class="profile__info">
+              <div class="profile__info-first-row">
+                <p class="profile__info-name">Жак-Ив Кусто</p>
+                <button class="profile__info-edit-button" type="button"></button>
+              </div>
+              <p class="profile__info-caption">Исследователь океана</p>
+            </div>
+        </div>
+        <button class="profile__add-photo-button" type="button"></button>
+      </section>
+
+      <section class="elements page__center">
+        <div class="elements__card">
+          <img src="./images/photo-grid-1.jpg" alt="Фотография" class="elements__card-pic">
+          <div class="elements__card-caption">
+            <p class="elements__card-caption-title">Карачаевск</p>
+            <button class="elements__card-caption-like-button" type="button"></button>
+          </div>
+        </div>
+        <div class="elements__card">
+          <img src="./images/photo-grid-2.jpg" alt="Фотография" class="elements__card-pic">
+          <div class="elements__card-caption">
+            <p class="elements__card-caption-title">Гора Эльбрус</p>
+            <button class="elements__card-caption-like-button" type="button"></button>
+          </div>
+        </div>
+        <div class="elements__card">
+          <img src="./images/photo-grid-3.jpg" alt="Фотография" class="elements__card-pic">
+          <div class="elements__card-caption">
+            <p class="elements__card-caption-title">Домбай</p>
+            <button class="elements__card-caption-like-button" type="button"></button>
+          </div>
+        </div>
+        <div class="elements__card">
+          <img src="./images/photo-grid-3.jpg" alt="Фотография" class="elements__card-pic">
+          <div class="elements__card-caption">
+            <p class="elements__card-caption-title">Домбайс</p>
+            <button class="elements__card-caption-like-button" type="button"></button>
+          </div>
+        </div>
+        <div class="elements__card">
+          <img src="./images/photo-grid-2.jpg" alt="Фотография" class="elements__card-pic">
+          <div class="elements__card-caption">
+            <p class="elements__card-caption-title">Гора Эльбрус</p>
+            <button class="elements__card-caption-like-button" type="button"></button>
+          </div>
+        </div>
+        <div class="elements__card">
+          <img src="./images/photo-grid-1.jpg" alt="Фотография" class="elements__card-pic">
+          <div class="elements__card-caption">
+            <p class="elements__card-caption-title">Карачаево-Чччч</p>
+            <button class="elements__card-caption-like-button" type="button"></button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer page__center">
+      <p class="footer__description">
+        	&#9400; 2020 Mesto Russia
+      </p>
+    </footer>
+
+    <div class="popup">
+      <div class="popup__container">
+        <button class="popup__close-button" type="button"></button>
+        <p class="popup__title">Редактировать профиль</p>
+        <form class="popup__form">
+          <input input type="text" class="popup__input-name" placeholder="name">
+          <input type="text" class="popup__input-description" placeholder="description">
+          <input class="popup__save-button" type="submit" value="Сохранить"></input>
+      </form>
+      </div>
+
+    </div>
+
+    <script src="./script/index.js"></script>
+</body>
+</html>
