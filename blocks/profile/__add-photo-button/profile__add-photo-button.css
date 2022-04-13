@@ -10,6 +10,7 @@
     background-repeat: no-repeat;
     background-size: 22px 22px;
     transition: ease-in-out .2s;
+    border-radius: 2px;
 }
 
 .profile__add-photo-button:hover{
@@ -23,7 +24,7 @@
     } 
  }
 
-@media screen and (max-width: 690px){
+@media screen and (max-width: 730px){
     .profile__add-photo-button{
         background-size: 16px 16px;
         width: 100%;

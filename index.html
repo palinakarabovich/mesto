@@ -17,76 +17,78 @@
         <div class="profile__content">
           <img src="./images/profile-pic.jpg" alt="Аватар пользователя" class="profile__avatar">
             <div class="profile__info">
-              <div class="profile__info-first-row">
-                <p class="profile__info-name">Жак-Ив Кусто</p>
-                <button class="profile__info-edit-button" type="button"></button>
+              <div class="profile__info-row">
+                <h1 class="profile__info-name">Жак-Ив Кусто</h1>
+                <button class="profile__info-edit-button" type="button" aria-label="Изменить описание профиля"></button>
               </div>
               <p class="profile__info-caption">Исследователь океана</p>
             </div>
         </div>
-        <button class="profile__add-photo-button" type="button"></button>
+        <button class="profile__add-photo-button" type="button" aria-label="Добавить фото"></button>
       </section>
 
       <section class="elements page__center">
-        <div class="elements__card">
-          <img src="./images/photo-grid-1.jpg" alt="Фотография" class="elements__card-pic">
+        <article class="elements__card">
+          <img src="./images/photo-grid-1.jpg" alt="Фотография Карачевск" class="elements__card-pic">
           <div class="elements__card-caption">
-            <p class="elements__card-caption-title">Карачаевск</p>
-            <button class="elements__card-caption-like-button" type="button"></button>
+            <h2 class="elements__card-caption-title">Карачаевск</h2>
+            <button class="elements__card-caption-like-button" type="button" aria-label="Нравится"></button>
           </div>
-        </div>
-        <div class="elements__card">
-          <img src="./images/photo-grid-2.jpg" alt="Фотография" class="elements__card-pic">
+        </article>
+
+        <article class="elements__card">
+          <img src="./images/photo-grid-2.jpg" alt="Фотография Гора Эльбрус" class="elements__card-pic">
           <div class="elements__card-caption">
-            <p class="elements__card-caption-title">Гора Эльбрус</p>
-            <button class="elements__card-caption-like-button" type="button"></button>
+            <h2 class="elements__card-caption-title">Гора Эльбрус</h2>
+            <button class="elements__card-caption-like-button" type="button" aria-label="Нравится"></button>
           </div>
-        </div>
-        <div class="elements__card">
-          <img src="./images/photo-grid-3.jpg" alt="Фотография" class="elements__card-pic">
+        </article>
+
+        <article class="elements__card">
+          <img src="./images/photo-grid-3.jpg" alt="Фотография Домбай" class="elements__card-pic">
           <div class="elements__card-caption">
-            <p class="elements__card-caption-title">Домбай</p>
-            <button class="elements__card-caption-like-button" type="button"></button>
+            <h2 class="elements__card-caption-title">Домбай</h2>
+            <button class="elements__card-caption-like-button" type="button" aria-label="Нравится"></button>
           </div>
-        </div>
-        <div class="elements__card">
-          <img src="./images/photo-grid-3.jpg" alt="Фотография" class="elements__card-pic">
+        </article>
+        <article class="elements__card">
+          <img src="./images/photo-grid-3.jpg" alt="Фотография Домбай" class="elements__card-pic">
           <div class="elements__card-caption">
-            <p class="elements__card-caption-title">Домбайс</p>
-            <button class="elements__card-caption-like-button" type="button"></button>
+            <h2 class="elements__card-caption-title">Домбайс</h2>
+            <button class="elements__card-caption-like-button" type="button" aria-label="Нравится"></button>
           </div>
-        </div>
-        <div class="elements__card">
-          <img src="./images/photo-grid-2.jpg" alt="Фотография" class="elements__card-pic">
+        </article>
+        <article class="elements__card">
+          <img src="./images/photo-grid-2.jpg" alt="Фотография Домбай" class="elements__card-pic">
           <div class="elements__card-caption">
-            <p class="elements__card-caption-title">Гора Эльбрус</p>
-            <button class="elements__card-caption-like-button" type="button"></button>
+            <h2 class="elements__card-caption-title">Гора Эльбрус</h2>
+            <button class="elements__card-caption-like-button" type="button" aria-label="Нравится"></button>
           </div>
-        </div>
-        <div class="elements__card">
-          <img src="./images/photo-grid-1.jpg" alt="Фотография" class="elements__card-pic">
+        </article>
+        <article class="elements__card">
+          <img src="./images/photo-grid-1.jpg" alt="Фотография Домбай" class="elements__card-pic">
           <div class="elements__card-caption">
-            <p class="elements__card-caption-title">Карачаево-Чччч</p>
-            <button class="elements__card-caption-like-button" type="button"></button>
+            <h2 class="elements__card-caption-title">Карачаево-Чччч</h2>
+            <button class="elements__card-caption-like-button" type="button" aria-label="Нравится"></button>
           </div>
-        </div>
+        </article>
       </section>
 
     </main>
 
     <footer class="footer page__center">
       <p class="footer__description">
-        	&#9400; 2020 Mesto Russia
+        &copy; 2020 Mesto Russia
       </p>
     </footer>
 
     <div class="popup">
       <div class="popup__container">
-        <button class="popup__close-button" type="button"></button>
-        <p class="popup__title">Редактировать профиль</p>
-        <form class="popup__form">
-          <input type="text" class="popup__input-name" placeholder="name">
-          <input type="text" class="popup__input-description" placeholder="description">
+        <button class="popup__close-button" type="button" aria-label="Закрыть окно"></button>
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <form class="popup__form" name="popup-edit-profile-form">
+          <input name="input-name" type="text" class="popup__input popup__input_type_name" placeholder="name">
+          <input name="input-description" type="text" class="popup__input popup__input_type_description" placeholder="description">
           <input class="popup__save-button" type="submit" value="Сохранить">
       </form>
       </div>

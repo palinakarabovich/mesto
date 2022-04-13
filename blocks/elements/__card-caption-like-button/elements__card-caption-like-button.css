@@ -3,7 +3,7 @@
     box-sizing: border-box;
     height: 19px;
     width: 22px;
-    background-image: url(../../../images/like-btn-no-active.png);
+    background-image: url(../../../images/like-btn-no-active.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -18,5 +18,6 @@
 }
 
 .elements__card-caption-like-button:focus{
-    background-image: url(../../../images/btn-like-active.png);
+    opacity: 1;
+    background-image: url(../../../images/btn-like-active.svg);
 }

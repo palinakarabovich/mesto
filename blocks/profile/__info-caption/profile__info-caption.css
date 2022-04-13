@@ -10,10 +10,11 @@
     max-width: 300px;
 }
 
-@media screen and (max-width: 690px){
+@media screen and (max-width: 730px){
     .profile__info-caption{
         font-size: 14px;
-        margin-top: 14px;
+        margin-top: 10px;
         text-align: center;
+        width: 282px;
     } 
  }
