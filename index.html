@@ -28,53 +28,6 @@
       </section>
 
       <section class="elements page__center">
-        <div class="elements__card">
-          <img src="./images/photo-grid-1.jpg" alt="Фотография Карачевск" class="elements__card-pic">
-          <div class="elements__card-caption">
-            <h2 class="elements__card-caption-title">Карачаевск</h2>
-            <button class="elements__card-caption-like-button" type="button" aria-label="Нравится"></button>
-          </div>
-        </div>
-
-        <div class="elements__card">
-          <img src="./images/photo-grid-2.jpg" alt="Фотография Гора Эльбрус" class="elements__card-pic">
-          <div class="elements__card-caption">
-            <h2 class="elements__card-caption-title">Гора Эльбрус</h2>
-            <button class="elements__card-caption-like-button" type="button" aria-label="Нравится"></button>
-          </div>
-        </div>
-
-        <div class="elements__card">
-          <img src="./images/photo-grid-3.jpg" alt="Фотография Домбай" class="elements__card-pic">
-          <div class="elements__card-caption">
-            <h2 class="elements__card-caption-title">Домбай</h2>
-            <button class="elements__card-caption-like-button" type="button" aria-label="Нравится"></button>
-          </div>
-        </div>
-
-        <div class="elements__card">
-          <img src="./images/photo-grid-3.jpg" alt="Фотография Домбай" class="elements__card-pic">
-          <div class="elements__card-caption">
-            <h2 class="elements__card-caption-title">Домбайс</h2>
-            <button class="elements__card-caption-like-button" type="button" aria-label="Нравится"></button>
-          </div>
-        </div>
-
-        <div class="elements__card">
-          <img src="./images/photo-grid-2.jpg" alt="Фотография Домбай" class="elements__card-pic">
-          <div class="elements__card-caption">
-            <h2 class="elements__card-caption-title">Гора Эльбрус</h2>
-            <button class="elements__card-caption-like-button" type="button" aria-label="Нравится"></button>
-          </div>
-        </div>
-
-        <div class="elements__card">
-          <img src="./images/photo-grid-1.jpg" alt="Фотография Домбай" class="elements__card-pic">
-          <div class="elements__card-caption">
-            <h2 class="elements__card-caption-title">Карачаево-Чччч</h2>
-            <button class="elements__card-caption-like-button" type="button" aria-label="Нравится"></button>
-          </div>
-        </div>
       </section>
 
     </main>
@@ -85,8 +38,8 @@
       </p>
     </footer>
 
-    <div class="popup">
-      <div class="popup__container">
+    <div class="popup popup_type_edit">
+      <div class="popup__container popup__container_type_edit">
         <button class="popup__close-button" type="button" aria-label="Закрыть окно"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
         <form class="popup__form" name="popup-edit-profile-form">
@@ -95,9 +48,39 @@
           <input class="popup__save-button" type="submit" value="Сохранить">
       </form>
       </div>
-
     </div>
 
-    <script src="./script/index.js"></script>
+    <div class="popup popup_type_add-photo">
+      <div class="popup__container popup__container_type_edit">
+        <button class="popup__close-button" type="button" aria-label="Закрыть окно"></button>
+        <h2 class="popup__title">Новое место</h2>
+        <form class="popup__form" name="popup-edit-profile-form">
+          <input name="input-title" type="text" class="popup__input popup__input_type_title" placeholder="Название">
+          <input name="input-link" type="text" class="popup__input popup__input_type_link" placeholder="Ссылка на картинку">
+          <input class="popup__save-button" type="submit" value="Создать">
+      </form>
+      </div>
+    </div>
+
+    <section class="popup popup_type_photo">
+      <div class="popup__container popup__container_type_photo">
+        <button class="popup__close-button" type="button" aria-label="Закрыть окно"></button>
+        <img class="popup__photo" src="#" alt="#">
+        <h2 class="popup__photo-title"></h2>
+      </div>
+     </section>
+    
+    <template id="card">
+      <div class="elements__card">
+        <button class="elements__card-delete-button" type="button" aria-label="Удалить фото"></button>
+        <img class="elements__card-pic" src="#" alt="#">
+        <div class="elements__card-caption">
+         <h2 class="elements__card-caption-title"></h2>
+         <button class="elements__card-caption-like-button" type="button" aria-label="Нравится"></button>
+        </div>
+      </div>
+    </template>
+
+<script src="./script/index.js"></script> 
 </body>
 </html>

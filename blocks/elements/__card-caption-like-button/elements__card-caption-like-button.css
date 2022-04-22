@@ -16,8 +16,3 @@
     opacity: .5;
     cursor: pointer;
 }
-
-.elements__card-caption-like-button:focus{
-    opacity: 1;
-    background-image: url(../../../images/btn-like-active.svg);
-}

@@ -13,6 +13,11 @@
     line-height: 1.21;
     color: black;
   }
+
+  .popup__input::placeholder{
+    color: #C4C4C4;
+    font-family: inherit;
+  }
   
   .popup__input:first-of-type {
     margin-top: 0;
