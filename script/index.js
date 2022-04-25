@@ -39,14 +39,19 @@ const imagePopUp = page.querySelector('.popup_type_photo');
 const editPopUp = page.querySelector('.popup_type_edit');
 const addPopUp = page.querySelector('.popup_type_add-photo');
 
+// инпуты
+const nameInput = page.querySelector('.popup__input_type_name');
+const jobInput = page.querySelector('.popup__input_type_description');
+const cardTitleInput = addPopUp.querySelector('.popup__input_type_title');
+const cardLinkInput = addPopUp.querySelector('.popup__input_type_link');
+
 //контейнер с карточками
 const cardContainer = page.querySelector('.elements');
 
-// Загрузка заданного массива карточек при запуске страницы  
+// Загрузка массива карточек при запуске страницы  
 function loadPage(cards){
   cards.forEach( function(card){
-    card = renderCard(card);
-    addCard(cardContainer, card);
+    addCard(cardContainer, renderCard(card));
   })
 }
 
@@ -99,37 +104,33 @@ function renderImagePopUp(evt){
 
 //Загрузка поп-апа с формой редактирования
 function renderEditPopUp(){
-    page.querySelector('.popup__input_type_name').value = page.querySelector('.profile__info-name').textContent;
-    page.querySelector('.popup__input_type_description').value = page.querySelector('.profile__info-caption').textContent;
-    editPopUp.querySelector('.popup__form').addEventListener('submit', submitEditForm);
+    nameInput.value = page.querySelector('.profile__info-name').textContent;
+    jobInput.value = page.querySelector('.profile__info-caption').textContent;
     openPopUp(editPopUp);
 }
 
 //Обработчик EditSubmit
 function submitEditForm(evt){
   evt.preventDefault();
-  page.querySelector('.profile__info-name').textContent = page.querySelector('.popup__input_type_name').value;
-  page.querySelector('.profile__info-caption').textContent = page.querySelector('.popup__input_type_description').value;
+  page.querySelector('.profile__info-name').textContent = nameInput.value;
+  page.querySelector('.profile__info-caption').textContent = jobInput.value;
   closePopUp(editPopUp);
 }
 
 //загрузка поп-апа с добавлением фото
  function renderAddPopUp(){ 
-    addPopUp.querySelector('.popup__form').addEventListener('submit', submitAddForm);
     openPopUp(addPopUp);
  }
 
  //Обработчик SubmitAdd-Card
  function submitAddForm (evt){
-    let card = {
-      name: addPopUp.querySelector('.popup__input_type_title').value,
-      link: addPopUp.querySelector('.popup__input_type_link').value
+    const card = {
+      name: cardTitleInput.value,
+      link: cardLinkInput.value
     }
     evt.preventDefault();
-    card = renderCard(card);
-    addCard(cardContainer, card);   
+    addCard(cardContainer, renderCard(card));
     addPopUp.querySelector('.popup__form').reset();
-    card = null;
     closePopUp(addPopUp);
  }
 
@@ -143,6 +144,8 @@ function submitEditForm(evt){
 
 editButton.addEventListener('click',renderEditPopUp); 
 addButton.addEventListener('click', renderAddPopUp);
+editPopUp.querySelector('.popup__form').addEventListener('submit', submitEditForm);
+addPopUp.querySelector('.popup__form').addEventListener('submit', submitAddForm);
 loadPage(initialCards);
 
 
