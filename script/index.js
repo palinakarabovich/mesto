@@ -31,7 +31,7 @@ const initialCards = [
 
 //основные кнопки
 const editButton = page.querySelector('.profile__info-edit-button');
-const closeButton = page.querySelectorAll('.popup__close-button');
+const closeButtonList = page.querySelectorAll('.popup__close-button');
 const addButton = page.querySelector('.profile__add-photo-button');
 
 // поп-апы
@@ -48,6 +48,11 @@ const cardLinkInput = addPopUp.querySelector('.popup__input_type_link');
 
 //контейнер с карточками
 const cardContainer = page.querySelector('.elements');
+
+//значения со страницы
+const profileName = page.querySelector('.profile__info-name');
+const profileCaption = page.querySelector('.profile__info-caption');
+const photo = imagePopUp.querySelector('.popup__photo');
 
 // Загрузка массива карточек при запуске страницы  
 function loadPage(cards){
@@ -70,17 +75,16 @@ function closePopUp(popup){
 
 //Закрытие попапа по нжатию Ecs 
 function closePopUpEscape(evt){
-  const popupIsOpened = page.querySelector('.popup_opened');
   if(evt.key === 'Escape'){
+    const popupIsOpened = page.querySelector('.popup_opened');
     closePopUp(popupIsOpened);
   }
 }
 
 //Закрытие попапа по клику все окна
 function closePopUpOverlay(evt){
-  const popupIsOpened = page.querySelector('.popup_opened');
   if (evt.target === evt.currentTarget){
-    closePopUp(popupIsOpened);
+    closePopUp(evt.currentTarget);
   }
 }
 
@@ -88,15 +92,16 @@ function closePopUpOverlay(evt){
 function renderCard(element){
     const cardTemplate = page.querySelector('#card').content; 
     const cardElement = cardTemplate.querySelector('.elements__card').cloneNode(true);
+    const cardPic = cardElement.querySelector('.elements__card-pic');
     cardElement.querySelector('.elements__card-caption-title').textContent = element.name;
-    cardElement.querySelector('.elements__card-pic').src = element.link;
-    cardElement.querySelector('.elements__card-pic').alt = element.name;
+    cardPic.src = element.link;
+    cardPic.alt = element.name;
 
     //LikeButton
-    cardElement.querySelector('.elements__card-caption-like-button').addEventListener('click', likeActive);
+    cardElement.querySelector('.elements__card-caption-like-button').addEventListener('click', toggleLike);
 
     //Увеличение картинки при нажатии
-    cardElement.querySelector('.elements__card-pic').addEventListener('click', renderImagePopUp);
+    cardPic.addEventListener('click', renderImagePopUp);
 
     //DeleteButton
     cardElement.querySelector('.elements__card-delete-button').addEventListener('click',deleteCard); 
@@ -104,7 +109,7 @@ function renderCard(element){
 }
 
 //Обработчик LikeButton
-function likeActive(evt) {
+function toggleLike(evt) {
   evt.target.classList.toggle('elements__card-caption-like-button_active');
 }
 
@@ -120,25 +125,27 @@ function addCard(container, cardElement) {
 
 //Загрузка поп-апа с увеличенной картинкой
 function renderImagePopUp(evt){
-    const imageCard = evt.target.closest('.elements__card');
-    imagePopUp.querySelector('.popup__photo').src = evt.target.src;
-    imagePopUp.querySelector('.popup__photo').alt = evt.target.alt;
-    imagePopUp.querySelector('.popup__photo-title').textContent = imageCard.querySelector('.elements__card-caption-title').textContent;
+    photo.src = evt.target.src;
+    photo.alt = evt.target.alt;
+    imagePopUp.querySelector('.popup__photo-title').textContent = evt.target.alt;
     openPopUp(imagePopUp);
 }
 
 //Загрузка поп-апа с формой редактирования
 function renderEditPopUp(){
-    nameInput.value = page.querySelector('.profile__info-name').textContent;
-    jobInput.value = page.querySelector('.profile__info-caption').textContent;
+    nameInput.value = profileName.textContent;
+    jobInput.value = profileCaption.textContent;
     openPopUp(editPopUp);
 }
 
 //Обработчик EditSubmit
 function submitEditForm(evt){
   evt.preventDefault();
-  page.querySelector('.profile__info-name').textContent = nameInput.value;
-  page.querySelector('.profile__info-caption').textContent = jobInput.value;
+  const submitButton = editPopUp.querySelector('.popup__save-button');
+  profileName.textContent = nameInput.value;
+  profileCaption.textContent = jobInput.value;
+  submitButton.classList.add('popup__save-button_inactive');
+  submitButton.setAttribute('disabled', 'disabled');
   closePopUp(editPopUp);
 }
 
@@ -149,24 +156,27 @@ function submitEditForm(evt){
 
  //Обработчик SubmitAdd-Card
  function submitAddForm (evt){
-    const card = {
+   const submitButton = addPopUp.querySelector('.popup__save-button');
+   const card = {
       name: cardTitleInput.value,
       link: cardLinkInput.value
     }
     evt.preventDefault();
     addCard(cardContainer, renderCard(card));
-    addPopUp.querySelector('.popup__form').reset();
+    evt.target.reset();
+    submitButton.classList.add('popup__save-button_inactive');
+    submitButton.setAttribute('disabled', 'disabled');
     closePopUp(addPopUp);
  }
 
   //Обработчки CloseButton
-  function closeButtonClick (evt){
+  function hideClosesPopup (evt){
     closePopUp(evt.target.closest('.popup'));
    }
 
  //Event Listener для всех CloseButton
- closeButton.forEach( function(button){
-  button.addEventListener('click', closeButtonClick)
+ closeButtonList.forEach( function(button){
+  button.addEventListener('click', hideClosesPopup);
  })
 
  //Event Listener для оверлея
