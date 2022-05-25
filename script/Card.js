@@ -22,20 +22,20 @@ export default class Card {
 
     generateCard(){
         this._card = this._getTemplate();
-        this._setEventListeners();
-        this._cardPic = this._card.querySelector('.elements__card-pic');
-        this._cardPic.src = this._link;
-        this._cardPic.alt = this._name;
+        const cardPic = this._card.querySelector('.elements__card-pic');
+        this._setEventListeners(cardPic);
+        cardPic.src = this._link;
+        cardPic.alt = this._name;
         this._card.querySelector('.elements__card-caption-title').textContent = this._name;
         return this._card;
     }
 
-    _setEventListeners(){
+    _setEventListeners(cardPic){
         //LikeButton
         this._card.querySelector('.elements__card-caption-like-button').addEventListener('click', this._toggleLike);
 
         //Увеличение картинки при нажатии
-        this._cardPic.addEventListener('click', this._renderImagePopUp);
+        cardPic.addEventListener('click', this._renderImagePopUp);
 
         //DeleteButton
         this._card.querySelector('.elements__card-delete-button').addEventListener('click', this._deleteCard);
