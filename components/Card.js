@@ -1,14 +1,13 @@
-import { openPopup } from './index.js'
-
 const imagePopup = document.querySelector('.popup_type_photo');
 const cardPhotoPopup = imagePopup.querySelector('.popup__photo');
 const cardTitlePopup = imagePopup.querySelector('.popup__photo-title');
 
 export default class Card {
-    constructor(data, templateSelector) {
+    constructor({data,handleCardClick}, templateSelector) {
         this._name = data.name;
         this._link = data.link;
         this._temptateSelector = templateSelector;
+        this._handleCardClick = handleCardClick;
     }
 
     _getTemplate(){
@@ -43,7 +42,6 @@ export default class Card {
         cardPhotoPopup.src = this._link;
         cardPhotoPopup.alt = this._name;
         cardTitlePopup.textContent = this._name;
-        openPopup(imagePopup);
     }
 
     _setEventListeners() {
@@ -51,7 +49,7 @@ export default class Card {
         this._likeButton.addEventListener('click', () => { this._toggleLike()});
 
         //Увеличение картинки при нажатии
-        this._cardPic.addEventListener('click', () => {this._renderimagePopup()});
+        this._cardPic.addEventListener('click', () => {this._handleCardClick(this._name, this._link)});
 
         //DeleteButton
         this._deleteButton.addEventListener('click', () => { this._deleteCard()});
