@@ -37,7 +37,7 @@ const validationSettings = {
 }
 
 //разные селекторы для поиска элементов
-const Selectors ={
+const selectors ={
   cardContainerSelector: '.elements',
   userNameSelector: '.profile__info-name',
   userInfoSelector: '.profile__info-caption',
@@ -60,5 +60,5 @@ export {
   jobInput,
   buttonEditProfile,
   buttonAddPhoto,
-  Selectors
+  selectors
  }

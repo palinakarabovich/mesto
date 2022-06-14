@@ -13,24 +13,26 @@ import {
   jobInput,
   buttonEditProfile,
   buttonAddPhoto,
-  Selectors} from '../constants/constants.js';
+  selectors} from '../constants/constants.js';
 
 
 //Загрузка карточек на страницу
 const cardsList = new Section ({
   items: initialCards,
   renderer: (item) => {
-      cardsList.addItem(generateNewCard(item).generateCard());
-  }}, Selectors.cardContainerSelector);
+      cardsList.addItem(generateNewCard(item));
+  }}, selectors.cardContainerSelector);
 
   cardsList.renderItems();
 
 //Генерация карточки
 function generateNewCard(card){
-  return new Card({
+  const generatedCard = new Card({
     data: card, 
     handleCardClick},
     '#card');
+  const cardTemplate = generatedCard.generateCard();
+  return cardTemplate;
 }
 
 //Попап с картинкой
@@ -52,7 +54,7 @@ function handleAddPhotoSubmit(inputValues){
     name: inputValues.get('input-title'),
     link: inputValues.get('input-link'),
   }
-  cardsList.addItem(generateNewCard(card).generateCard());
+  cardsList.addItem(generateNewCard(card));
   photoAddFormValidator.deactivateButton();
   popupAddPhoto.closePopup();
 }
@@ -76,13 +78,13 @@ function handleUserInfoInput() {
 }
 
 //Информация о пользователе
-const userInfo = new UserInfo(Selectors.userNameSelector, Selectors.userInfoSelector);
+const userInfo = new UserInfo(selectors.userNameSelector, selectors.userInfoSelector);
 
 //Валидаторы
-const photoAddFormValidator = new FormValidator(validationSettings, document.querySelector(Selectors.photoAddForm));
+const photoAddFormValidator = new FormValidator(validationSettings, document.querySelector(selectors.photoAddForm));
 photoAddFormValidator.enableValidation();
 
-const profileEditFormValidator = new FormValidator(validationSettings, document.querySelector(Selectors.profileEditForm));
+const profileEditFormValidator = new FormValidator(validationSettings, document.querySelector(selectors.profileEditForm));
 profileEditFormValidator.enableValidation();
 
 //Кнопка изменить профиль

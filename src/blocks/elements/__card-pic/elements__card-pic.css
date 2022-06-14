@@ -6,4 +6,10 @@
     object-fit: cover;
     object-position: center;
     display: block;
+    transition: opacity ease-in-out .2s;
 }
+
+.elements__card-pic:hover {
+    cursor: pointer;
+    opacity: .6;
+  }
