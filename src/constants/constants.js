@@ -1,31 +1,3 @@
-//карточки 
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
 //Настройки валидации
 const validationSettings = {
   formSelector: '.popup__form',
@@ -42,23 +14,35 @@ const selectors ={
   userNameSelector: '.profile__info-name',
   userInfoSelector: '.profile__info-caption',
   photoAddForm: '#popup-add-photo-form',
-  profileEditForm: '#popup-edit-profile-form'
+  profileEditForm: '#popup-edit-profile-form',
+  avatarEditForm:'#popup-edit-avatar-form',
+  avatarImageSelector: '.profile__avatar'
+}
+
+const popupSelectors ={
+  popupAddPhoto: '.popup_type_add-photo',
+  popupEditProfile: '.popup_type_edit',
+  popupOpenPic: '.popup_type_photo',
+  popupDeletePic: '.popup_type_delete-card',
+  popupEditAvatar: '.popup_type_edit-avatar'
 }
 
 //основные кнопки
 const buttonEditProfile = document.querySelector('.profile__info-edit-button');
 const buttonAddPhoto = document.querySelector('.profile__add-photo-button');
+const buttonEditAvatar = document.querySelector('.profile__avatar-edit-button');
 
 // инпуты
 const nameInput = document.querySelector('.popup__input_type_name');
 const jobInput = document.querySelector('.popup__input_type_description');
 
 export {
-  initialCards,
   validationSettings,
   nameInput,
   jobInput,
   buttonEditProfile,
   buttonAddPhoto,
-  selectors
+  selectors,
+  buttonEditAvatar,
+  popupSelectors
  }
