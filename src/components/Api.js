@@ -5,6 +5,13 @@ export default class Api {
       this._cardsUrl = `${this._baseUrl}/cards`;
       this._userUrl = `${this._baseUrl}/users/me`;
     }
+
+    _checkResponse(res) {
+      if(res.ok){
+        return res.json();
+    }
+        return Promise.reject(`Номер ошибки: ${res.status}`);
+    }
   
     getInitialCards() {
      return fetch (this._cardsUrl, {
@@ -13,12 +20,7 @@ export default class Api {
             authorization: this._token,
         }
      })
-     .then(res => {
-        if(res.ok){
-            return res.json();
-        }
-        return Promise.reject(`Номер ошибки: ${res.status}`);
-     })
+     .then(this._checkResponse);
     }
   
 
@@ -29,12 +31,7 @@ export default class Api {
             authorization: this._token
         }
     })
-    .then(res => {
-        if(res.ok){
-            return res.json();
-        }
-        return Promise.reject(`Номер ошибки: ${res.status}`);
-     })
+    .then(this._checkResponse);
   }
   
   saveUserChanges({name, about}){
@@ -49,13 +46,7 @@ export default class Api {
             about: about
         })
       })
-      .then(res => {
-        if(res.ok){
-            return res.json();
-        }
-        return Promise.reject(`Номер ошибки: ${res.status}`);
-      })
-      
+      .then(this._checkResponse);    
   }
 
   changeAvatar({link}) {
@@ -69,12 +60,7 @@ export default class Api {
           avatar: link
         })
       })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Номер ошибки: ${res.status}`);
-      })
+      .then(this._checkResponse);
   }
 
   deleteCard(cardId) {
@@ -84,12 +70,7 @@ export default class Api {
           authorization: this._token,
         }
       })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-      })
+      .then(this._checkResponse);
   }
 
   addNewCard({name, link}){
@@ -104,13 +85,7 @@ export default class Api {
             link: link
         })
     })
-    .then( res => {
-        if (res.ok) {
-            return res.json();
-          }
-
-          return Promise.reject(`Номер ошибки: ${res.status}`);
-    })
+    .then(this._checkResponse);
   }
 
   toggleLike(card, isLiked){
@@ -121,13 +96,7 @@ export default class Api {
           authorization: this._token,
         }
       })
-      .then (res => {
-        if (res.ok) {
-          return res.json();
-        }
-
-        return Promise.reject(`Номер ошибки: ${res.status}`);
-      })
+      .then(this._checkResponse);
     }
     else {
       return fetch(`${this._cardsUrl}/${card}/likes`,{
@@ -136,12 +105,7 @@ export default class Api {
           authorization: this._token,
         }
       })
-      .then (res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Номер ошибки: ${res.status}`);
-      })
+      .then(this._checkResponse);
     }
   }
 }

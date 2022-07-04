@@ -39,7 +39,7 @@ function handleCardClick(title, link) {
   popupWithImage.openPopup(title, link);
 }
 
-//Обработка киков по лайкам
+//Обработка кликов по лайкам
 function handleLikeClick(cardId, isLiked, card){
 
   api.toggleLike(cardId, isLiked)
@@ -109,7 +109,7 @@ function handleEditAvatarSubmit(inputValues){
     api.changeAvatar(inputValues)
     .then(data => {
       userInfo.setUserInfo(data);
-      popupEditProfile.closePopup();
+      popupEditAvatar.closePopup();
     })
     .catch((err) => {
       console.log(err);
@@ -118,7 +118,6 @@ function handleEditAvatarSubmit(inputValues){
       popupEditAvatar.renderSavings(false);
     })
     profileEditAvatarFormValidator.deactivateButton();
-    popupEditAvatar.closePopup();
   
 }
 

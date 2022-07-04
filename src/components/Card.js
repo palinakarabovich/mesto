@@ -1,6 +1,3 @@
-const imagePopup = document.querySelector('.popup_type_photo');
-const cardPhotoPopup = imagePopup.querySelector('.popup__photo');
-const cardTitlePopup = imagePopup.querySelector('.popup__photo-title');
 let isLiked = false;
 
 export default class Card {
@@ -55,8 +52,7 @@ export default class Card {
     }
 
     _toggleLike() {
-        this._likeButton.classList.toggle('elements__card-caption-like-button_active');
-        if(this._likeButton.classList.contains('elements__card-caption-like-button_active')){
+        if(!this._likeButton.classList.contains('elements__card-caption-like-button_active')){
             isLiked = true;
             this._handleLikeClick(this._cardId, isLiked, this);
         }
@@ -69,17 +65,12 @@ export default class Card {
     setLikes(likesSum){
         this._likesSum = likesSum;
         this._likeSumElement.textContent = this._likesSum;
+        this._likeButton.classList.toggle('elements__card-caption-like-button_active');
     }
 
     deleteCard() {
         this._card.remove();
         this._card = null;
-    }
-
-    _renderimagePopup() {
-        cardPhotoPopup.src = this._link;
-        cardPhotoPopup.alt = this._name;
-        cardTitlePopup.textContent = this._name;
     }
 
     _setEventListeners() {
