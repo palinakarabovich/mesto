@@ -13,7 +13,7 @@ export default class PopupWithForm extends Popup {
 
     renderSavings(status){
         if(status){
-            this._buttonElement.value = 'Сохранение...'
+            this._buttonElement.value = 'Saving...'
         }
         else{
             this._buttonElement.value = this._buttonText;

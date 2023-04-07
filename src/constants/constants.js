@@ -1,4 +1,4 @@
-//Настройки валидации
+//Validation
 const validationSettings = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
@@ -8,7 +8,7 @@ const validationSettings = {
   errorClass: 'popup__input-error_active'
 }
 
-//разные селекторы для поиска элементов
+//Selectors
 const selectors ={
   cardContainerSelector: '.elements',
   userNameSelector: '.profile__info-name',
@@ -27,12 +27,12 @@ const popupSelectors ={
   popupEditAvatar: '.popup_type_edit-avatar'
 }
 
-//основные кнопки
+//Buttons
 const buttonEditProfile = document.querySelector('.profile__info-edit-button');
 const buttonAddPhoto = document.querySelector('.profile__add-photo-button');
 const buttonEditAvatar = document.querySelector('.profile__avatar-edit-button');
 
-// инпуты
+//Inputs
 const nameInput = document.querySelector('.popup__input_type_name');
 const jobInput = document.querySelector('.popup__input_type_description');
 

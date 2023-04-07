@@ -1,21 +1,19 @@
 -----
-**Спринт 4** 
+**Mesto** 
 -----
-## Описание проекта
-Первая часть работы над сервисом Mesto: интерактивной страницей, куда можно будет добавлять фотографии, удалять их и ставить лайки.
+## Description
+The first part of Mesto service: an interactive page where you can add photos, delete them and like them.
 
-## Ссылка на опубликованный проект
+## Link
 https://palinakarabovich.github.io/mesto/index.html
 
-## Инструменты и технологии
-* HTML5,  
+## Tools and technologies
+* HTML5,
 * CSS3,
 * JS,
 * flexbox,
 * grid,
-* позиционирование,
-* БЭМ,
-* анимация
-
-## Планы на проект
-- Проверить на кроссбраузерность.
+* positioning,
+* BEM,
+* animation,
+* Webpack

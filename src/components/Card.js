@@ -77,7 +77,6 @@ export default class Card {
         //LikeButton
         this._likeButton.addEventListener('click', () => { this._toggleLike()});
 
-        //Увеличение картинки при нажатии
         this._cardPic.addEventListener('click', () => {this._handleCardClick(this._name, this._link)});
 
         //DeleteButton
